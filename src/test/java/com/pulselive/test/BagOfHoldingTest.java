@@ -27,11 +27,17 @@ public class BagOfHoldingTest
 	
 	@Test
 	public void should_accumulate_values(){
-		List<Item> packBag = BagOfHolding.packBag(items,500);
-		packBag.forEach(item -> assertTrue(item.getSize() < 500 ));
-		Integer totalSize = packBag.stream().map(item -> item.getSize()).reduce(0,(e,c) -> e+c);
+		List<Item> packedBag = BagOfHolding.packBag(items,500);
+
+		Integer totalSize = packedBag.stream().map(item -> item.getSize()).reduce(0,(e,c) -> e+c);
+		
 		assertTrue(totalSize < 500);
 	}
 	
-	
+	@Test
+	public void should_return_empty_list(){
+		List<Item> packedBag = BagOfHolding.packBag(items,0);
+		assertTrue(packedBag.size() == 0);
+
+	}
 }
