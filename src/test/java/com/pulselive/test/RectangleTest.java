@@ -34,7 +34,29 @@ public class RectangleTest {
 		
 	}
 
-	 
+	/*
+	 * ^ X	(top,left)			 			                 * 	(top,left)			 
+	 * | 	 	 .	.	.	.	.	.                        *   	 .	.	.	.	.	. 
+	 * |      	 .                  .                        *       .                  .
+	 * |		 .      2           .                        * 		 .        1         .
+	 * |		 .					.                        * 		 .					.
+	 * |		 .	.	.	.	.	.                        * 		 .	.	.	.	.	.
+	 * |	 				(bottom,right)                  		 * 	 				(bottom,right)
+	 * |
+	 * |-----------------------------------------------------------------------------------------------> Y
+	 * 
+	 * */
+	
+	@Test
+	public void should_negate_when_rectangle_to_left(){
+		
+		Rectangle rect1 = new Rectangle(10, 15, 5, 25);
+		Rectangle rect2 = new Rectangle(10, 5, 5, 10);
+		 
+		assertFalse(rect1.intersects(rect2));
+		
+	}
+	
 
 	
 	
