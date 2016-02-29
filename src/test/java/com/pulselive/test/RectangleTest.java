@@ -127,4 +127,33 @@ public class RectangleTest {
 				
 			}
 	
+			
+			@Test
+			public void should_return_True_when_rectangle_overlap(){
+				
+				Rectangle rect1 = new Rectangle(5, 0, 0, 5);
+				Rectangle rect2 = new Rectangle(5, 0, 0, 5);
+				assertTrue(rect1.intersects(rect2));
+				
+			}
+		
+			@Test
+			public void should_negate_when_rectangle_within(){
+				
+				Rectangle rect1 = new Rectangle(5, 0, 0, 5);
+				Rectangle rect2 = new Rectangle(4, 1, 1, 3);
+				assertTrue(rect1.intersects(rect2));
+				
+			}
+		
+			
+			@Test
+			public void should_return_True_when_rectangle_intersect(){
+				
+				Rectangle rect1 = new Rectangle(10, 5, 5, 15);
+				Rectangle rect2 = new Rectangle(10, 10, 5, 20);
+				 
+				assertTrue(rect1.intersects(rect2));
+				
+			}
 }

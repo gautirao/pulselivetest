@@ -35,7 +35,7 @@ public class Rectangle {
     	 boolean intersects =    	( this.right < r.left) ||
     			 					( this.left > r.right) ||
     			 					( this.bottom > r.top) ||
-    	 							( this.top < r.bottom ) 	;
+    	 							( this.top < r.bottom) ;
     	 return !intersects;
 
 
