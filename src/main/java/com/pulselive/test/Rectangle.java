@@ -4,26 +4,26 @@ public class Rectangle {
 
     // The co-ordinates of the top, left, bottom and right sides
 	/*
-	 * 	(maxX,minY)			(maxX,maxY)
+	 * 	(top,left)			
 	 *   	 .	.	.	.	.	. 
 	 *       .                  .
 	 * 		 .                  .
 	 * 		 .					.
 	 * 		 .	.	.	.	.	.
-	 * 	(minX,minY)			(minX,maxY)
+	 * 						(bottom,right)
 	 * */
 	
 
-    private double minx;
-    private double maxX;
-    private double minY;
-    private double maxY;
+    private double bottom;
+    private double top;
+    private double left;
+    private double right;
 
-    public Rectangle( double minX, double maxX, double minY, double maxY ){
-        this.minx = minX;
-        this.maxX = maxX;
-        this.minY = minY;
-        this.maxY = maxY;
+    public Rectangle( double top, double left, double bottom, double right){
+        this.bottom = bottom;
+        this.top = top;
+        this.left = left;
+        this.right = right;
     }
 
     public boolean intersects( Rectangle r ){
@@ -32,16 +32,16 @@ public class Rectangle {
     		throw new IllegalArgumentException("rectangle is a point and cannot be tested for intersection ");
     	}
 
-    	 boolean intersects =    		this.maxY < r.minY  && 
-    									this.maxY < r.maxY;
-	return !intersects;
+    	 boolean intersects =    	( this.left < r.left && this.right < r.right);
+	
+    	 return !intersects;
 
 
     }
 
 	private boolean isPoint(Rectangle r) {
 		 
-		return (r.minx == r.minY) && (r.maxX == r.maxY) && (r.minx == r.maxX) && (r.minY == r.maxY)  ;
+		return (r.top == r.bottom) && (r.left == r.right);
 	}
 
 }
