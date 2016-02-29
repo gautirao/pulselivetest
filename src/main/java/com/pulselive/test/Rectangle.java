@@ -32,13 +32,16 @@ public class Rectangle {
     		throw new IllegalArgumentException("rectangle is a point and cannot be tested for intersection ");
     	}
 
-    	return false;
+    	 boolean intersects =    		this.maxY < r.minY  && 
+    									this.maxY < r.maxY;
+	return !intersects;
+
 
     }
 
 	private boolean isPoint(Rectangle r) {
 		 
-		return (r.minx == r.minY) && (r.maxX == r.maxY);
+		return (r.minx == r.minY) && (r.maxX == r.maxY) && (r.minx == r.maxX) && (r.minY == r.maxY)  ;
 	}
 
 }
