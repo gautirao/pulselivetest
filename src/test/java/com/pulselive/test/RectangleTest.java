@@ -91,5 +91,40 @@ public class RectangleTest {
 			assertFalse(rect1.intersects(rect2));
 			
 		}
+		
+		
+		/*
+		 * 	 * ^ X	(top,left)			                  
+			 * | 	 	 .	.	.	.	.	.                        
+			 * |      	 .                  .                        
+			 * |		 .      2           .                        
+			 * |		 .					.                        
+			 * |		 .	.	.	.	.	.                        
+			 * |	 					(bottom,right)                  
+			 * |
+			 * |
+			 * |
+			 * |	* 	(top,left)				
+			 * |    *    .	.	.	.	.	. 
+			 * |    *    .                  .
+			 * |    * 	 .        1         .
+			 * |    * 	 .					.
+			 * |    * 	 .	.	.	.	.	.
+			 * |    * 	  				(bottom,right)
+			 * |
+			 * |
+			 * |-----------------------------------------------------------------------------------------------> Y
+			 
+		 * 
+		 * */
+			
+			@Test
+			public void should_negate_when_rectangle_to_top(){
+				
+				Rectangle rect1 = new Rectangle(10, 5, 5, 10);
+				Rectangle rect2 = new Rectangle(20, 5, 15, 10);
+				assertFalse(rect1.intersects(rect2));
+				
+			}
 	
 }
