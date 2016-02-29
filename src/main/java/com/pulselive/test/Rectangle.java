@@ -32,9 +32,9 @@ public class Rectangle {
     		throw new IllegalArgumentException("rectangle is a point and cannot be tested for intersection ");
     	}
 
-    	 boolean intersects =    	( this.left < r.left && this.right < r.right) ||
-    			 					( this.left > r.left && this.right > r.right) 	;
-	
+    	 boolean intersects =    	( this.right < r.left) ||
+    			 					( this.left > r.right) ||
+    	 							( this.bottom > r.top) 	;
     	 return !intersects;
 
 
