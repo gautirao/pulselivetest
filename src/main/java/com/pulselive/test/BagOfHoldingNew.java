@@ -14,7 +14,7 @@ public class BagOfHoldingNew {
 		for (Item item : items) {
 			int accumulate = capacityLeft - item.size;
 			
-			if(extracted(accumulate)){
+			if(isPositive(accumulate)){
 				capacityLeft = accumulate;
 				collectedItems.add(item);
 			}
@@ -23,7 +23,7 @@ public class BagOfHoldingNew {
 
 	}
 
-	private static boolean extracted(int accumulate) {
+	private static boolean isPositive(int accumulate) {
 		return accumulate > 0;
 	}
 	
