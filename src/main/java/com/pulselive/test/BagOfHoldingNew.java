@@ -14,13 +14,17 @@ public class BagOfHoldingNew {
 		for (Item item : items) {
 			int accumulate = capacityLeft - item.size;
 			
-			if(accumulate > 0){
+			if(extracted(accumulate)){
 				capacityLeft = accumulate;
 				collectedItems.add(item);
 			}
 		}
 		return collectedItems;
 
+	}
+
+	private static boolean extracted(int accumulate) {
+		return accumulate > 0;
 	}
 	
 	public static class Item{
