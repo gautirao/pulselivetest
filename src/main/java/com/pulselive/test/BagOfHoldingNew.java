@@ -8,13 +8,14 @@ public class BagOfHoldingNew {
 	
 	public static List<Item> packBag(List<Item> items, int capacity){
 	
-		int totalSize = 0;
+		int capacityLeft = capacity;
 		List<Item> collectedItems = new ArrayList<Item>();
 		
 		for (Item item : items) {
-			int accumulate = totalSize +  item.size;
-			if(accumulate < capacity){
-				totalSize += accumulate;
+			int accumulate = capacityLeft - item.size;
+			
+			if(accumulate > 0){
+				capacityLeft = accumulate;
 				collectedItems.add(item);
 			}
 		}
